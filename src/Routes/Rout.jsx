@@ -6,6 +6,7 @@ import AddTouristSport from "../Components/AddTouristSport/AddTouristSport";
 import MyList from "../Components/MyList/MyList";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
+import Header from "../Components/Header/Header";
 const route = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const route = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/header",
+        element: <Header></Header>,
       },
     ],
   },
