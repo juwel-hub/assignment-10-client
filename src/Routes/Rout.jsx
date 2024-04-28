@@ -6,7 +6,8 @@ import AddTouristSport from "../Components/AddTouristSport/AddTouristSport";
 import MyList from "../Components/MyList/MyList";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
-import Header from "../Components/Header/Header";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+
 const route = createBrowserRouter([
   {
     path: "/",
@@ -22,7 +23,11 @@ const route = createBrowserRouter([
       },
       {
         path: "/addTouristSport",
-        element: <AddTouristSport></AddTouristSport>,
+        element: (
+          <PrivateRoute>
+            <AddTouristSport></AddTouristSport>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myList",
@@ -35,10 +40,6 @@ const route = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
-      },
-      {
-        path: "/header",
-        element: <Header></Header>,
       },
     ],
   },

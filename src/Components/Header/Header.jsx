@@ -1,4 +1,4 @@
-// Import Swiper React components
+// import required modules
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -6,13 +6,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "./styles.css";
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Header = () => {
   return (
-    <div>
+    <div className=" ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -27,15 +25,62 @@ const Header = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <SwiperSlide>
+          <div className="relative">
+            <img src="/public/header2.jpg" alt="" />
+          </div>
+          <div className="absolute lg:top-[250px] lg:left-[180px] md:top-[250px] md:left-[150px] top-[100px] ">
+            <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl text-center">
+              The best way to find your tourism please
+            </h1>
+            <p className="text-center md:text-xl text-white my-3">
+              There are no alternative to refresh of mind better then travel,{" "}
+              <br /> This is most important to refresh our mind.
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative">
+            <img src="/public/header3.jpg" alt="" />
+          </div>
+          <div className="absolute lg:top-[250px] lg:left-[180px] md:top-[250px] md:left-[150px] top-[100px] ">
+            <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl text-center">
+              The best way to find your tourism please
+            </h1>
+            <p className="text-center md:text-xl text-white my-3">
+              There are no alternative to refresh of mind better then travel,{" "}
+              <br /> This is most important to refresh our mind.
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative">
+            <img src="/public/header4.jpg" alt="" />
+          </div>
+          <div className="absolute lg:top-[250px] lg:left-[180px] md:top-[250px] md:left-[150px] top-[100px] ">
+            <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl text-center">
+              The best way to find your tourism please
+            </h1>
+            <p className="text-center md:text-xl text-white my-3">
+              There are no alternative to refresh of mind better then travel,{" "}
+              <br /> This is most important to refresh our mind.
+            </p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative">
+            <img src="/public/header5.jpg" alt="" />
+          </div>
+          <div className="absolute lg:top-[250px] lg:left-[180px] md:top-[250px] md:left-[150px] top-[100px] ">
+            <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl text-center">
+              The best way to find your tourism please
+            </h1>
+            <p className="text-center md:text-xl text-white my-3">
+              There are no alternative to refresh of mind better then travel,{" "}
+              <br /> This is most important to refresh our mind.
+            </p>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </div>
   );

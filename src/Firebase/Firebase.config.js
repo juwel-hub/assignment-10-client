@@ -12,6 +12,7 @@ const firebaseConfig = {
   projectId: "traveler-hero-projects",
   storageBucket: "traveler-hero-projects.appspot.com",
   messagingSenderId: "781220248192",
+  appId: "1:781220248192:web:d6b72a4afb0afa3aa54465",
 };
 
 // Initialize Firebase
