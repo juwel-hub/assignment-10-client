@@ -4,17 +4,15 @@ const AllTouristCard = ({ data }) => {
   const { id } = useParams();
   const {
     _id,
-    country,
+
     touristSport,
-    location,
+
     averageCost,
-    description,
+
     image,
     travelTime,
     visitors,
     seasonality,
-    email,
-    name,
   } = data;
   return (
     <div>
@@ -44,7 +42,7 @@ const AllTouristCard = ({ data }) => {
           </p>
           <div className="card-actions justify-end">
             <Link
-              to={`/viewDetails/${id}`}
+              to={`/viewDetails/${_id}`}
               className="btn bg-green-500 text-xl font-bold text-white "
             >
               View Details
