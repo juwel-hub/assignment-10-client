@@ -1,20 +1,43 @@
 const AddTouristSport = () => {
+  const handleAddToCard = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const country = form.country.value;
+    const touristSport = form.touristSport.value;
+    const location = form.location.value;
+    const averageCost = form.averageCost.value;
+    const description = form.description.value;
+    const image = form.image.value;
+    const travelTime = form.travelTime.value;
+    const visitors = form.visitors.value;
+    const seasonality = form.seasonality.value;
+    const email = form.email.value;
+    const name = form.name.value;
+    const cardInfo = {
+      country,
+      touristSport,
+      location,
+      averageCost,
+      description,
+      image,
+      travelTime,
+      visitors,
+      seasonality,
+      email,
+      name,
+    };
+    console.log(cardInfo);
+  };
   return (
     <div>
-      <h1>add tourist</h1>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+          <div className="text-center ">
+            <h1 className="text-5xl mb-5 font-bold">Add to card!</h1>
           </div>
           <div className=" shrink-0  shadow-2xl border border-green-500 rounded-lg bg-base-100">
-            <form className="card-body">
-              <div className="lg:flex flex-col  justify-center gap-5">
+            <form onSubmit={handleAddToCard} className="card-body">
+              <div className="md:flex   justify-center gap-5">
                 <div>
                   <div className="form-control">
                     <label className="label">
@@ -126,13 +149,13 @@ const AddTouristSport = () => {
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text text-xl font-bold">
-                          User Email
+                          Seasonality
                         </span>
                       </label>
                       <input
-                        type="email"
-                        name="email"
-                        placeholder="email"
+                        type="text"
+                        name="seasonality"
+                        placeholder="Seasonality"
                         className="input input-bordered"
                       />
                     </div>
@@ -157,7 +180,7 @@ const AddTouristSport = () => {
                       </label>
                       <input
                         type="text"
-                        name=""
+                        name="email"
                         placeholder="email"
                         className="input input-bordered"
                       />

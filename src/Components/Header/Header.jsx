@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Header = () => {
   return (
-    <div className=" ">
+    <div className="-z-1">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
