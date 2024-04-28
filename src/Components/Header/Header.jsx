@@ -27,7 +27,7 @@ const Header = () => {
       >
         <SwiperSlide>
           <div className="relative">
-            <img src="/public/header2.jpg" alt="" />
+            <img src="/header2.jpg" alt="" />
           </div>
           <div className="absolute lg:top-[250px] lg:left-[180px] md:top-[250px] md:left-[150px] top-[100px] ">
             <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl text-center">
@@ -41,7 +41,7 @@ const Header = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative">
-            <img src="/public/header3.jpg" alt="" />
+            <img src="/header3.jpg" alt="" />
           </div>
           <div className="absolute lg:top-[250px] lg:left-[180px] md:top-[250px] md:left-[150px] top-[100px] ">
             <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl text-center">
@@ -55,7 +55,7 @@ const Header = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative">
-            <img src="/public/header4.jpg" alt="" />
+            <img src="/header4.jpg" alt="" />
           </div>
           <div className="absolute lg:top-[250px] lg:left-[180px] md:top-[250px] md:left-[150px] top-[100px] ">
             <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl text-center">
@@ -69,7 +69,7 @@ const Header = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative">
-            <img src="/public/header5.jpg" alt="" />
+            <img src="/header5.jpg" alt="" />
           </div>
           <div className="absolute lg:top-[250px] lg:left-[180px] md:top-[250px] md:left-[150px] top-[100px] ">
             <h1 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl text-center">
