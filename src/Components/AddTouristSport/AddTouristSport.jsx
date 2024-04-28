@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddTouristSport = () => {
   const handleAddToCard = (e) => {
     e.preventDefault();
@@ -27,6 +29,27 @@ const AddTouristSport = () => {
       name,
     };
     console.log(cardInfo);
+
+    // send data to server
+    fetch("http://localhost:5000/travels", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cardInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "success!",
+            text: "Card added successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
   };
   return (
     <div>

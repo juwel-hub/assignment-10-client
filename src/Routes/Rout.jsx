@@ -7,11 +7,14 @@ import MyList from "../Components/MyList/MyList";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import ViewDetails from "../Components/ViewDetails/ViewDetails";
 
 const route = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -20,6 +23,7 @@ const route = createBrowserRouter([
       {
         path: "/allTouristSport",
         element: <AllTouristSport></AllTouristSport>,
+        loader: () => fetch("http://localhost:5000/travels"),
       },
       {
         path: "/addTouristSport",
@@ -40,6 +44,11 @@ const route = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/viewDetails/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: () => fetch("http://localhost:5000/travels"),
       },
     ],
   },
