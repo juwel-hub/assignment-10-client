@@ -6,6 +6,7 @@ const SocialLogin = () => {
   const { googleLogin, githubLogin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
   const handleSocialLogin = (social) => {
     social().then((res) => {
       console.log(res.user);

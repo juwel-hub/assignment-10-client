@@ -9,12 +9,13 @@ import Register from "../Components/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
+import UpdateData from "../Components/UpdateData/UpdateData";
 
 const route = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement: <ErrorPage></ErrorPage>,
+    // errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -29,7 +30,7 @@ const route = createBrowserRouter([
         path: "/addTouristSport",
         element: (
           <PrivateRoute>
-            <AddTouristSport></AddTouristSport>
+            <AddTouristSport />
           </PrivateRoute>
         ),
       },
@@ -47,8 +48,16 @@ const route = createBrowserRouter([
       },
       {
         path: "/viewDetails/:id",
-        element: <ViewDetails></ViewDetails>,
+        element: (
+          <PrivateRoute>
+            <ViewDetails />
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/travels"),
+      },
+      {
+        path: "/updateData/:id",
+        element: <UpdateData></UpdateData>,
       },
     ],
   },
