@@ -15,9 +15,22 @@ const MyList = () => {
         });
     }
   }, [user]);
+  // const {
+  //   _id,
+  //   country,
+  //   touristSport,
+  //   location,
+  //   averageCost,
+  //   description,
+  //   image,
+  //   travelTime,
+  //   visitors,
+  //   seasonality,
+  //   email,
+  //   name,
+  // } = items;
   return (
     <div>
-      <h1>my list</h1>
       {items?.map((item) => (
         <ItemCard key={item._id} item={item}></ItemCard>
       ))}

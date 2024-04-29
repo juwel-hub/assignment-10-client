@@ -17,51 +17,37 @@ const ItemCard = ({ item }) => {
     name,
   } = item;
   return (
-    <div>
-      <div className="card  bg-base-100 shadow-xl">
-        <figure>
-          <img className="w-full" src={image} alt="Shoes" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title text-3xl">{touristSport}</h2>
-          <p className="font-semibold ">
-            <span className="text-xl font-semibold mr-3">Average Cost:</span>
-            {averageCost}
-          </p>
-          <p className="font-semibold ">
-            <span className="text-xl font-semibold mr-3">
-              Total Visitors Per Year:
-            </span>
-            {visitors}
-          </p>
-          <p className="font-semibold ">
-            <span className="text-xl font-semibold mr-3">Travel Time:</span>
-            {seasonality}
-          </p>
-          <p className="font-semibold ">
-            <span className="text-xl font-semibold mr-3">Seasonality:</span>
-            {travelTime}
-          </p>
-          <div className="card-actions justify-end">
-            <Link to={`/updateData/:_id`}>
-              <a
-                className="btn bg-green-500 text-xl font-bold text-white "
-                href=""
-              >
-                Update
-              </a>
-            </Link>
-            <Link to="">
-              <a
-                className="btn bg-green-500 text-xl font-bold text-white "
-                href=""
-              >
-                Delete
-              </a>
-            </Link>
-          </div>
-        </div>
-      </div>
+    <div className="flex items-center justify-center my-10 ">
+      <table className="table-auto border border-collapse w-3/4  ">
+        <thead className="">
+          <tr>
+            <th>Country</th>
+            <th>Location</th>
+            <th>AverageCost</th>
+            <th>Travel Time</th>
+            <th>Update btn</th>
+            <th>Delete btn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{country}</td>
+            <td>{location}</td>
+            <td>{averageCost}</td>
+            <td>{travelTime}</td>
+            <td>
+              <Link>
+                <button className="btn bg-green-500 text-white">Update</button>
+              </Link>
+            </td>
+            <td>
+              <Link>
+                <button className="btn bg-red-400 text-white"> Delete</button>
+              </Link>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
