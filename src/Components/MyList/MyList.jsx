@@ -15,20 +15,7 @@ const MyList = () => {
         });
     }
   }, [user]);
-  // const {
-  //   _id,
-  //   country,
-  //   touristSport,
-  //   location,
-  //   averageCost,
-  //   description,
-  //   image,
-  //   travelTime,
-  //   visitors,
-  //   seasonality,
-  //   email,
-  //   name,
-  // } = items;
+
   return (
     <div>
       {items?.map((item) => (

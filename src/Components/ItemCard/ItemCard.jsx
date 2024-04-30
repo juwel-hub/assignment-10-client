@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
 const ItemCard = ({ item }) => {
-  const { id } = useParams();
   const {
     _id,
     country,
@@ -36,14 +35,12 @@ const ItemCard = ({ item }) => {
             <td>{averageCost}</td>
             <td>{travelTime}</td>
             <td>
-              <Link>
+              <Link to={`/updateData/:${_id}`}>
                 <button className="btn bg-green-500 text-white">Update</button>
               </Link>
             </td>
             <td>
-              <Link>
-                <button className="btn bg-red-400 text-white"> Delete</button>
-              </Link>
+              <button className="btn bg-red-400 text-white"> Delete</button>
             </td>
           </tr>
         </tbody>

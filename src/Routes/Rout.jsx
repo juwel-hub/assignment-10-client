@@ -55,10 +55,14 @@ const route = createBrowserRouter([
         ),
         loader: () => fetch("http://localhost:5000/travels"),
       },
-      // {
-      //   path: "/updateData/:id",
-      //   element: <UpdateData></UpdateData>,
-      // },
+      {
+        path: "/updateData/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateData></UpdateData>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
