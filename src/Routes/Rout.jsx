@@ -10,6 +10,8 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import UpdateData from "../Components/UpdateData/UpdateData";
+import TouristSport from "../Components/TouristSport/TouristSport";
+import BlogArticle from "../Components/BlogArticle/BlogArticle";
 
 const route = createBrowserRouter([
   {
@@ -62,6 +64,14 @@ const route = createBrowserRouter([
             <UpdateData></UpdateData>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/touristSport",
+        element: <TouristSport></TouristSport>,
+      },
+      {
+        path: "/blog",
+        element: <BlogArticle></BlogArticle>,
       },
     ],
   },
