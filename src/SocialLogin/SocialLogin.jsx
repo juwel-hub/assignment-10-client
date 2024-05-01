@@ -9,7 +9,6 @@ const SocialLogin = () => {
 
   const handleSocialLogin = (social) => {
     social().then((res) => {
-      console.log(res.user);
       if (res.user) {
         navigate(location?.state ? location.state : "/");
       }

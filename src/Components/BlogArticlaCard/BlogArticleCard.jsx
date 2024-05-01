@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const BlogArticleCard = ({ inf }) => {
-  const { img, title, description, post_date } = inf;
+  const { _id, id, img, title, description, post_date } = inf;
   return (
     <div>
       <div className="card  bg-base-100 shadow-xl">
@@ -15,9 +15,9 @@ const BlogArticleCard = ({ inf }) => {
             {post_date}
           </p>
           <div className="card-actions">
-            <button className="btn bg-green-500 text-white">
-              View Details
-            </button>
+            {/* <Link to={`/blogDetails/${_id}`}> */}
+            <a className="btn bg-green-500 text-white">Read more</a>
+            {/* </Link> */}
           </div>
         </div>
       </div>
