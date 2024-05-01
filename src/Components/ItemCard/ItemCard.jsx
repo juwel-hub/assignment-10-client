@@ -1,22 +1,18 @@
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 const serverUrl = import.meta.env.VITE_serverUrl;
 
 const ItemCard = ({ item }) => {
+  const [deleteItem, setDeleteItem] = useState(item);
   const {
     _id,
     country,
-    touristSport,
     location,
     averageCost,
-    description,
-    image,
+
     travelTime,
-    visitors,
-    seasonality,
-    email,
-    name,
-  } = item;
+  } = deleteItem;
 
   const handleDelete = (id) => {
     console.log(id);
@@ -31,7 +27,9 @@ const ItemCard = ({ item }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${serverUrl}/products/${_id}`)
+        fetch(`${serverUrl}/deleteData/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -41,6 +39,9 @@ const ItemCard = ({ item }) => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
+              const remaining = deleteItem.filter((itm) => itm._id !== _id);
+
+              setDeleteItem(remaining);
             }
           });
       }
