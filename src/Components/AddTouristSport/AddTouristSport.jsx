@@ -1,6 +1,8 @@
 import Swal from "sweetalert2";
 
 const AddTouristSport = () => {
+  const serverUrl = import.meta.env.VITE_serverUrl;
+
   const handleAddToCard = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,7 +33,7 @@ const AddTouristSport = () => {
     console.log(cardInfo);
 
     // send data to server
-    fetch("http://localhost:5000/travels", {
+    fetch(`${serverUrl}/travels`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

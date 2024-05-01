@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const BlogArticleCard = ({ inf }) => {
   const { img, title, description, post_date } = inf;
   return (
@@ -9,7 +11,6 @@ const BlogArticleCard = ({ inf }) => {
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>
           <p>
-            {" "}
             <span className="text-xl font-semibold">Post Date:</span>{" "}
             {post_date}
           </p>

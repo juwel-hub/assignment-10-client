@@ -1,35 +1,87 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+
+const serverUrl = import.meta.env.VITE_serverUrl;
 
 const UpdateData = () => {
   const { id } = useParams();
 
-  const [product, setProducts] = useState({});
-  console.log(product);
+  const [updateData, setUpdateData] = useState({});
+
   useEffect(() => {
-    fetch(`http://localhost:5000/singleProduct/${id}`)
+    fetch(`${serverUrl}/singleProduct/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setProducts(data);
+        setUpdateData(data);
       });
   }, [id]);
+  const {
+    _id,
+    country,
+    touristSport,
+    location,
+    averageCost,
+    description,
+    image,
+    travelTime,
+    visitors,
+    seasonality,
+    email,
+    name,
+  } = updateData;
+  console.log(updateData);
 
-  const handleUpdate = () => {};
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const country = form.country.value;
+    const touristSport = form.touristSport.value;
+    const location = form.location.value;
+    const averageCost = form.averageCost.value;
+    const description = form.description.value;
+    const image = form.image.value;
+    const travelTime = form.travelTime.value;
+    const visitors = form.visitors.value;
+    const seasonality = form.seasonality.value;
+    const email = form.email.value;
+    const name = form.name.value;
+    const updateInfo = {
+      country,
+      touristSport,
+      location,
+      averageCost,
+      description,
+      image,
+      travelTime,
+      visitors,
+      seasonality,
+      email,
+      name,
+    };
+    console.log(updateInfo);
+    fetch(`${serverUrl}/updateProduct/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "success!",
+            text: "Card Updated successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
+  };
 
-  // const {
-  //   country,
-  //   touristSport,
-  //   location,
-  //   averageCost,
-  //   description,
-  //   image,
-  //   travelTime,
-  //   visitors,
-  //   seasonality,
-  //   email,
-  //   name,
-  // } = product;
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -51,7 +103,7 @@ const UpdateData = () => {
                       type="text"
                       name="country"
                       placeholder="Country Name"
-                      defaultValue={product.country}
+                      defaultValue={country}
                       className="input input-bordered"
                     />
                   </div>
@@ -65,6 +117,7 @@ const UpdateData = () => {
                       type="text"
                       placeholder="Tourist sport"
                       name="touristSport"
+                      defaultValue={touristSport}
                       className="input input-bordered"
                     />
                   </div>
@@ -77,6 +130,7 @@ const UpdateData = () => {
                     <input
                       type="text"
                       name="location"
+                      defaultValue={location}
                       placeholder="Location"
                       className="input input-bordered"
                     />
@@ -91,6 +145,7 @@ const UpdateData = () => {
                       type="text"
                       placeholder="Average Cost"
                       name="averageCost"
+                      defaultValue={averageCost}
                       className="input input-bordered"
                     />
                   </div>
@@ -103,6 +158,7 @@ const UpdateData = () => {
                     <input
                       type="text"
                       name="description"
+                      defaultValue={description}
                       placeholder="Description "
                       className="input input-bordered"
                     />
@@ -117,6 +173,7 @@ const UpdateData = () => {
                       type="text"
                       placeholder="Use image URl"
                       name="image"
+                      defaultValue={image}
                       className="input input-bordered"
                     />
                   </div>
@@ -132,6 +189,7 @@ const UpdateData = () => {
                       <input
                         type="text"
                         name="travelTime"
+                        defaultValue={travelTime}
                         placeholder="Travel Time"
                         className="input input-bordered"
                       />
@@ -146,6 +204,7 @@ const UpdateData = () => {
                         type="text"
                         placeholder="Total visitors"
                         name="visitors"
+                        defaultValue={visitors}
                         className="input input-bordered"
                       />
                     </div>
@@ -158,6 +217,7 @@ const UpdateData = () => {
                       <input
                         type="text"
                         name="seasonality"
+                        defaultValue={seasonality}
                         placeholder="Seasonality"
                         className="input input-bordered"
                       />
@@ -172,6 +232,7 @@ const UpdateData = () => {
                         type="text"
                         placeholder="User Name"
                         name="name"
+                        defaultValue={name}
                         className="input input-bordered"
                       />
                     </div>
@@ -184,6 +245,7 @@ const UpdateData = () => {
                       <input
                         type="text"
                         name="email"
+                        defaultValue={email}
                         placeholder="email"
                         className="input input-bordered"
                       />

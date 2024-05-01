@@ -12,6 +12,7 @@ import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import UpdateData from "../Components/UpdateData/UpdateData";
 import TouristSport from "../Components/TouristSport/TouristSport";
 import BlogArticle from "../Components/BlogArticle/BlogArticle";
+const serverUrl = import.meta.env.VITE_serverUrl;
 
 const route = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const route = createBrowserRouter([
       {
         path: "/allTouristSport",
         element: <AllTouristSport></AllTouristSport>,
-        loader: () => fetch("http://localhost:5000/travels"),
+        loader: () => fetch(`${serverUrl}/travels`),
       },
       {
         path: "/addTouristSport",
@@ -38,7 +39,11 @@ const route = createBrowserRouter([
       },
       {
         path: "/myList",
-        element: <MyList></MyList>,
+        element: (
+          <PrivateRoute>
+            <MyList></MyList>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -55,10 +60,11 @@ const route = createBrowserRouter([
             <ViewDetails />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/travels"),
+        loader: () => fetch(`${serverUrl}/travels`),
       },
       {
         path: "/updateData/:id",
+
         element: (
           <PrivateRoute>
             <UpdateData></UpdateData>

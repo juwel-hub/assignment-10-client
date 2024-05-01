@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import ItemCard from "../ItemCard/ItemCard";
 
+const serverUrl = import.meta.env.VITE_serverUrl;
+
 const MyList = () => {
   const { user } = useContext(AuthContext) || {};
   const [items, setItem] = useState([]);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/myProduct/${user.email}`)
+      fetch(`${serverUrl}/myProduct/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

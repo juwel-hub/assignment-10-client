@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogArticleCard from "../BlogArticlaCard/BlogArticleCard";
 
 const BlogArticle = () => {
   const [info, setInfo] = useState([]);
-  fetch("./BlogArticle.json")
-    .then((res) => res.json())
-    .then((data) => setInfo(data));
+
+  useEffect(() => {
+    fetch("./BlogArticle.json")
+      .then((res) => res.json())
+      .then((data) => setInfo(data));
+  }, []);
   return (
     <div className="my-10 ">
       <h1 className="text-5xl font-bold text-center">Blog & Article</h1>
