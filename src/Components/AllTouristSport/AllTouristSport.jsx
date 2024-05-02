@@ -1,8 +1,30 @@
 import { useLoaderData } from "react-router-dom";
 import AllTouristCard from "../AllTouristCard/AllTouristCard";
+import { useEffect, useState } from "react";
 
 const AllTouristSport = () => {
   const cardData = useLoaderData();
+  const [sortedData, setSortedData] = useState([]);
+
+  const parseAndSortAverageCost = (value) => {
+    return parseInt(value.split(" ")[0].replace(/,/g, ""));
+  };
+  const handleSort = () => {
+    const copySortedData = [
+      ...sortedData.sort((a, b) => {
+        return (
+          parseAndSortAverageCost(b.averageCost) -
+          parseAndSortAverageCost(a.averageCost)
+        );
+      }),
+    ];
+
+    setSortedData(copySortedData);
+  };
+
+  useEffect(() => {
+    setSortedData(cardData);
+  }, [cardData]);
 
   return (
     <div className="mb-10">
@@ -18,13 +40,13 @@ const AllTouristSport = () => {
           tabIndex={0}
           className="dropdown-content z-[1]  menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li>
-            <a>Sort with avg cost</a>
-          </li>
+          <a onClick={() => handleSort()} className="btn">
+            Sort with avg cost
+          </a>
         </ul>
       </div>
       <div className="grid gap-5 grid-cols-1  md:grid-cols-2 lg:grid-cols-3">
-        {cardData.map((data) => (
+        {sortedData.map((data) => (
           <AllTouristCard key={data._id} data={data}></AllTouristCard>
         ))}
       </div>

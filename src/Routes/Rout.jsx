@@ -13,13 +13,14 @@ import UpdateData from "../Components/UpdateData/UpdateData";
 import TouristSport from "../Components/TouristSport/TouristSport";
 import BlogArticle from "../Components/BlogArticle/BlogArticle";
 import BlogDetails from "../Components/BlogDetails/BlogDetails";
+import CountryDetails from "../Components/Countrydetails/CountryDetails";
 const serverUrl = import.meta.env.VITE_serverUrl;
 
 const route = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    // errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -79,6 +80,11 @@ const route = createBrowserRouter([
       {
         path: "/blog",
         element: <BlogArticle></BlogArticle>,
+      },
+      {
+        path: "/countryDetails/:id",
+        loader: () => fetch(`${serverUrl}/countriesData`),
+        element: <CountryDetails></CountryDetails>,
       },
       // {
       //   path: "/blogDetails/:id",

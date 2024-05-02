@@ -14,16 +14,19 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="footer-title">Contact With us</h6>
-          <a href="https://www.facebook.com/" className="link link-hover">
+          <a
+            href="https://www.facebook.com/"
+            className="link text-3xl link-hover"
+          >
             <FaFacebookSquare />
           </a>
           <a
             href="https://www.instagram.com/?hl=en"
-            className="link link-hover"
+            className="link text-3xl link-hover"
           >
             <FaSquareInstagram />
           </a>
-          <a href="" className="link link-hover">
+          <a href="" className="link text-3xl link-hover">
             <FaSquareWhatsapp />
           </a>
         </nav>
@@ -35,7 +38,9 @@ const Footer = () => {
         </nav>
 
         <div>
-          <p className="text-center">Copy right by Travel hero LTD. 2024</p>
+          <p className="text-center underline">
+            Copy right by Travel hero LTD. 2024
+          </p>
         </div>
       </footer>
     </div>

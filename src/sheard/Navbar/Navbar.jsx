@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -112,7 +113,7 @@ const Navbar = () => {
               {navItem}
             </ul>
           </div>
-          <a className=" text-2xl md:text-4xl font-bold">
+          <a className=" text-xl md:text-4xl font-bold">
             Traveler<span className="text-green-500">Hero</span>
           </a>
         </div>
@@ -133,10 +134,16 @@ const Navbar = () => {
             <div>
               {user ? (
                 <div className="flex items-center">
-                  <img
-                    className="w-10 rounded-full mr-3"
-                    src={user.photoURL}
-                    alt=""
+                  <a id="my-anchor-element">
+                    <img
+                      className="w-10 rounded-full mr-3"
+                      src={user.photoURL}
+                      alt=""
+                    />
+                  </a>
+                  <Tooltip
+                    anchorSelect="#my-anchor-element"
+                    content={user.displayName}
                   />
                   <button
                     onClick={logOut}
