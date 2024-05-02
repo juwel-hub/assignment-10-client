@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const BlogArticleCard = ({ inf }) => {
   const { _id, id, img, title, description, post_date } = inf;

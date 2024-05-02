@@ -9,7 +9,7 @@ const BlogArticle = () => {
       .then((res) => res.json())
       .then((data) => setInfo(data));
   }, []);
-  console.log(info);
+  // console.log(info);
   return (
     <div className="my-10 ">
       <h1 className="text-5xl font-bold text-center">Blog & Article</h1>
